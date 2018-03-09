@@ -37,34 +37,41 @@ def find_pet_by_name(pet_shop, name)
   for pet in pet_shop[:pets]
     if pet[:name] == name
     requested_name[:name] = name
-  else
-    return nil
-    end
   end
-  return requested_name
+  end
+  return requested_name unless requested_name.empty?
 end
-#
-# def find_pet_by_name(pet_shop, name)
 
 
-# def test_find_pet_by_name__returns_nil
-#   pet = find_pet_by_name(@pet_shop, "Fred")
-#   assert_nil(pet)
-# end
+def remove_pet_by_name(pet_shop, name_to_remove)
+  pet_shop[:pets].delete_if {|pet| pet[:name] == name_to_remove}
+end
 
-# def add_pet_to_stock(pet_shop, new_pet)
-#     pet_shop[:pets].push(new_pet)
-# end
-#
-# def customer_pet_count(customer[])
-#   total_customer_pets = []
-#   for pets in customers
-#     total_customer_pets.push([:pets])
-#   end
-#   total_pet_count = total_customer_pets.length
-# end
+def add_pet_to_stock(pet_shop, new_pet)
+  pet_shop[:pets].push(new_pet)
+end
+
+
+def customer_pet_count(customers)
+  total_pet_count = []
+  for customer in customers[:pets]
+    if customer[:pets] = amount_pets
+  end
+end
+  return total_pet_count.length
+end
+
+def add_pet_to_customer(customer, new_pet)
+  customer[:pets].push(new_pet)
+  return customer[:pets]
+end
+
 
 # def test_customer_pet_count
 #   count = customer_pet_count(@customers[0])
 #   assert_equal(0, count)
+# end
+# def add_pet_to_customer(customer, new_pet)
+#   customer[:pets].push(new_pet)
+#   return customer[:pets]
 # end
