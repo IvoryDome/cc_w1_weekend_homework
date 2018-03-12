@@ -52,26 +52,43 @@ def add_pet_to_stock(pet_shop, new_pet)
 end
 
 
-def customer_pet_count(customers)
-  total_pet_count = []
-  for customer in customers[:pets]
-    if customer[:pets] = amount_pets
+def customer_pet_count(customer)
+total_pet_count = []
+  for customer in @customers
+    for pet in customer[:pets]
+      total_pet_count.push(pet)
+    end
   end
-end
   return total_pet_count.length
 end
+
 
 def add_pet_to_customer(customer, new_pet)
   customer[:pets].push(new_pet)
   return customer[:pets]
 end
 
+def customer_can_afford_pet(customer, new_pet)
+  if customer[:cash] > new_pet[:price]
+    then return true
+  else return false
+  end
+end
 
-# def test_customer_pet_count
-#   count = customer_pet_count(@customers[0])
-#   assert_equal(0, count)
-# end
-# def add_pet_to_customer(customer, new_pet)
-#   customer[:pets].push(new_pet)
-#   return customer[:pets]
-# end
+
+def sell_pet_to_customer(pet_shop, customer, pet)
+  pet_to_sell = []
+  for pets in pet_shop[:pets]
+    if pet[:name] == pet
+      pet_to_sell.push(pets)
+    end
+  end
+    for customer in @customers
+      if (customer[:name] == customer) && (customer[:cash] > pet_to_sell[:price])
+        then customer[:cash] -= pet_to_sell[:price]
+        pet_shop[:admin][:total_cash] += pet_to_sell[:price]
+        customer[:pets].push(pet_to_sell[:name])
+        pet_shop[:pets].delete(pet_to_sell[:name])
+      end
+    end
+end
